@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import random
-import re
 
 orig_page = "List_of_natural_phenomena"
 
@@ -11,8 +10,9 @@ def get_webpage_details(web_url):
         url=web_url
     )
     if response.status_code == 200:
-
         soup = BeautifulSoup(response.content, 'html.parser')
+
+        # print webpage title and url
         webpage_title = soup.find(id="firstHeading")
         print(f"Title: {webpage_title.string}")
         print(f"url: {web_url}")
